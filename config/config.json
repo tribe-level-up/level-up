@@ -2,7 +2,7 @@
   "development": {
     "username": "stephnitis",
     "password": null,
-    "database": "auth-api",
+    "database": "level-up",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
