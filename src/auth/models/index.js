@@ -7,10 +7,11 @@ const foodsSchema = require('./foods.schema');
 const cocktailsSchema = require('./cocktails.schema');
 const userModel = require('./users');
 const Collection = require('./data-collection.js');
+const DATABASE_URL = process.env.DATABASE_URL;
 
-const DATABASE_URL = process.env.NODE_ENV === 'test'
-  ? 'sqlite::memory'
-  : process.env.DATABASE_URL;
+// const DATABASE_URL = process.env.NODE_ENV === 'test'
+//   ? 'sqlite::memory'
+//   : process.env.DATABASE_URL;
 
 // Uncomment for production; Comment out for Development
 const sequelizeDatabase = new Sequelize(DATABASE_URL, {
