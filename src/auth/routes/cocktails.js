@@ -5,7 +5,7 @@ const router = express.Router();
 const {CocktailsModel} = require('../models');
 
 //Create
-router.post('./cocktails', async(req, res, next) => {
+router.post('./cocktails', async (req, res, next) => {
   const newCocktail = await CocktailsModel.create(req.body);
 
   res.status(201).send(newCocktail);

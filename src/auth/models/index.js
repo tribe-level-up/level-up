@@ -5,6 +5,8 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 const foodsSchema = require('./foods.schema');
 const cocktailsSchema = require('./cocktails.schema');
+const userModel = require('./users');
+const Collection = require('./data-collection.js');
 
 const DATABASE_URL = process.env.NODE_ENV === 'test'
   ? 'sqlite::memory'
@@ -25,9 +27,11 @@ const sequelizeDatabase = new Sequelize(DATABASE_URL, {});
 
 const FoodsModel = foodsSchema(sequelizeDatabase, DataTypes);
 const CocktailsModel = cocktailsSchema(sequelizeDatabase, DataTypes);
+const users = userModel(sequelizeDatabase, DataTypes);
 
 module.exports = {
   sequelizeDatabase,
-  FoodsModel,
-  CocktailsModel,
+  foods: new Collection(FoodsModel),
+  cocktails: new Collection(CocktailsModel),
+  users,
 };

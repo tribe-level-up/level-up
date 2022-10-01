@@ -8,7 +8,7 @@ const {start} = require('./src/server');
 sequelizeDatabase.sync()
   .then(() => {
     console.log('successful connection');
-    start();
+    start(process.env.PORT || 3002);
   })
   .catch(error => console.error(error));
 
