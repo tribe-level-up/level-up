@@ -15,5 +15,9 @@ module.exports = (sequelizeDatabase, DataTypes) => {
       values: ['sweet', 'sour', 'bitter', 'spicy', 'salty', 'umami'],
       allowNull: true,
     },
+    notes: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   });
 };
